@@ -1,72 +1,45 @@
-# ¿Cuántos paneles caben? (Next.js)
+# ¿Cuántos paneles caben?
 
-Pequeña app que calcula y dibuja cuántos paneles rectangulares `a×b` caben dentro de un techo `x×y`. 
-Permite **rotar** los paneles y usa una **heurística guillotina** (filas/columnas) además de las dos orientaciones puras.
+Este proyecto es una **pequeña app hecha con Next.js y React** que calcula cuántos paneles solares rectangulares pueden caber dentro de un techo rectangular.
 
-## Algoritmo (resumen)
+La idea es simple: escribes las medidas del **techo** (ancho y alto) y las del **panel** (ancho y alto), y la app te muestra:
+- Cuántos paneles caben como máximo.
+- Qué tipo de distribución se usó.
+- Un dibujo en pantalla mostrando cómo se acomodan.
 
-1. **Puras**: probamos todo `a×b` y todo `b×a`.
-2. **Mixtas por filas**: tomamos `k` filas superiores con una orientación y llenamos el resto con la mejor orientación pura.
-3. **Mixtas por columnas**: igual idea, partiendo el ancho.
-4. De todas las variantes, elegimos la que **maximiza** el número de paneles y generamos un **layout** con coordenadas.
+---
 
-> Nota: el empaquetado 2D óptimo es NP-difícil; esta aproximación es **rápida y muy competitiva** para frontends interactivos.
+## Qué hace exactamente
 
-## Ejecutar en local
+El programa prueba varias formas de acomodar los paneles dentro del techo:
 
-Requisitos: Node.js 18+ (o 20+). En Windows PowerShell:
+1. Todos los paneles colocados **sin girar**.  
+2. Todos los paneles colocados **girados 90°**.  
+3. Una **combinación por filas o columnas**, donde se mezclan paneles normales y rotados para aprovechar mejor el espacio.
 
-```powershell
-# Clonar o descomprimir el proyecto
-cd ruuf-panels-next
+Después elige la que **da más paneles** y la muestra gráficamente.
 
-# Instalar dependencias
-npm install   # (o pnpm install / yarn)
+No hay unidades (metros, centímetros, etc.), solo números.  
+El cálculo funciona mientras todas las medidas estén en la **misma unidad**.
 
-# Desarrollo
-npm run dev
-# abrir http://localhost:3000
+---
 
-# Producción
-npm run build
-npm start
-```
+## Cómo usarlo
+Por defecto tiene las medidas sugeridas en el ejemplo.
+1. Ingresa:
+   - Ancho del techo (x)  
+   - Alto del techo (y)  
+   - Ancho del panel (a)  
+   - Alto del panel (b)
 
-## Uso
-
-1. Ingresa `x`, `y` del techo; `a`, `b` del panel; y **margen** opcional (misma unidad).
 2. Presiona **Calcular**.
-3. Se muestra el **total** y el **dibujo** (SVG) con los paneles colocados.
 
-## Estructura
+3. Verás el número máximo de paneles que caben, el porcentaje de ocupación del techo y una explicación en palabras simples del tipo de acomodo.
 
-```
-/app
-  layout.js
-  page.js            # UI principal
-/components
-  Inputs.jsx         # formulario controlado
-  RoofView.jsx       # dibujo SVG
-/lib
-  packing.js         # algoritmo de colocación
-/styles
-  globals.css        # estilos mínimos
-```
+También puedes hacer clic en el texto **“Demo técnica”** para ver un pequeño resumen de cómo funciona el sistema.
 
-## Despliegue recomendado
+---
 
-- **Vercel** (nativo para Next.js): conecta tu repo, `npm run build` y listo.
-- Alternativa: **Netlify** con Next Runtime.
-
-Instrucciones rápidas (Vercel):
-1. Sube este proyecto a GitHub (o GitLab/Bitbucket).
-2. Entra a [vercel.com](https://vercel.com), **New Project** → importa el repo.
-3. Framework: *Next.js*, comando de build: `npm run build`.
-4. Deploy. Fin.
-
-## Extensiones posibles
-
-- Márgenes distintos en X/Y.
-- Zonas no utilizables del techo (obstáculos) subdividiendo en regiones.
-- Comparador de soluciones (pura vs mixta).
-- Exportar a SVG/PNG.
+## Cómo ejecutarlo en tu computador
+Lo subí a **Vercel** asi que es de simple acceso
+https://paneles-gold.vercel.app/
