@@ -68,7 +68,7 @@ export default function Page() {
     <div className="container">
       <h1>¿Cuántos paneles caben?</h1>
 
-      {/* Pill con tooltip accesible */}
+      {/* tooltip */}
       <span
         ref={pillRef}
         className="pill"
@@ -102,14 +102,15 @@ export default function Page() {
             padding: 16
           }}
         >
+          {/* explicacion en el tooltip */}
           <p style={{ marginTop: 0, marginBottom: 8 }}>
-            Ingresa las medidas del techo (<b>x</b> y <b>y</b>) y del panel (<b>a</b> y <b>b</b>).
-            Calculamos la <b>máxima cantidad</b> de paneles que caben, pudiendo girarlos 90° si conviene.
+            Ingresa las medidas del techo (<b>x</b> e <b>y</b>) y del panel (<b>a</b> y <b>b</b>).
+            Calcula la <b>máxima cantidad</b> de paneles que caben, pudiendo girarlos 90° si conviene.
           </p>
           <ul style={{ margin: '0 0 8px 18px' }}>
-            <li>Probamos varias formas: todos sin girar, todos girados y combinaciones por filas/columnas.</li>
-            <li>Mostramos el total y un dibujo superior sin solapes.</li>
-            <li>No usamos unidades: sólo importa que todas las medidas estén en la misma escala.</li>
+            <li>Prueba varias formas: todos sin girar, todos girados y combinaciones por filas/columnas.</li>
+            <li>Muestra el total y un dibujo superior sin solapes.</li>
+            <li>No uso unidades: sólo importo que todas las medidas estén en la misma escala.</li>
           </ul>
           <div style={{ display: 'flex', gap: 8 }}>
             <button className="btn" onClick={() => setOpenTip(false)}>Entendido</button>
