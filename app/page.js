@@ -71,7 +71,7 @@ export default function Page() {
         style={{ position: 'relative', display: 'inline-block', cursor: 'pointer' }}
         title={!openTip ? 'Haz clic para ver explicación' : undefined}
       >
-        Demo técnica
+        Información de demo técnica
       </span>
 
       {openTip && (
