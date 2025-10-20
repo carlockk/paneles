@@ -1,6 +1,6 @@
 'use client'
 import { useMemo } from 'react'
-
+//despliegue visual
 export default function RoofView({ roof, panels, margin = 0 }) {
   // Calcula escala para que el techo siempre quepa en el SVG con padding
   const { vbW, vbH, scale, pad } = useMemo(() => {

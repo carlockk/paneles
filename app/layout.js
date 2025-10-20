@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 
 export const metadata = {
-  title: '¿Cuántos paneles caben? - Ruuf demo',
+  title: '¿Cuántos paneles caben?',
   description: 'Calcula y dibuja cuántos paneles rectangulares caben en un techo',
 }
 
