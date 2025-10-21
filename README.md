@@ -1,32 +1,20 @@
 # ¿Cuántos paneles caben? (Next.js)
 
-Pequeña app que calcula y dibuja cuántos paneles rectangulares `a×b` caben dentro de un techo `x×y`. 
-Permite **rotar** los paneles y usa una **heurística guillotina** (filas/columnas) además de las dos orientaciones puras.
+¿Cómo funciona esta aplicación?
+Esta aplicación calcula de forma automática la cantidad máxima de paneles solares rectangulares que pueden ser instalados en un techo también rectangular. El usuario ingresa las dimensiones del techo y del panel, y la aplicación analiza diferentes combinaciones para acomodar los paneles, buscando la disposición que mejor aproveche el espacio disponible.
 
-## Algoritmo (resumen)
+La solución no solo considera poner todos los paneles en una sola orientación, sino que también prueba rotarlos y mezclarlos en filas o columnas para optimizar la capacidad total.
 
-1. **Puras**: probamos todo `a×b` y todo `b×a`.
-2. **Mixtas por filas**: tomamos `k` filas superiores con una orientación y llenamos el resto con la mejor orientación pura.
-3. **Mixtas por columnas**: igual idea, partiendo el ancho.
-4. De todas las variantes, elegimos la que **maximiza** el número de paneles y generamos un **layout** con coordenadas.
+Finalmente, la aplicación muestra visualmente cómo quedarían distribuidos los paneles sobre el techo, junto con información adicional como la cantidad total de paneles y el porcentaje de área ocupada.
 
-## Uso
+Archivos principales
+lib/packing.js
+Contiene la lógica principal del cálculo. En especial, la función packBest es la encargada de recibir las dimensiones y probar todas las alternativas de acomodo: orientación fija, rotada y opciones mixtas. Retorna la configuración óptima con las posiciones exactas de cada panel.
 
-1. Ingresa `x`, `y` del techo; `a`, `b` del panel; (misma unidad).
-2. Presiona **Calcular**.
-3. Se muestra el **total** y el **dibujo** (SVG) con los paneles colocados.
+components/RoofView.jsx
+Este componente se encarga de la visualización. Usa SVG para dibujar el techo y cada panel en su posición, creando una vista clara y visual para el usuario. Es el responsable de mostrar la distribución calculada por packing.js.
 
-## Estructura
+Uso
+El usuario simplemente ingresa las dimensiones, presiona calcular y la app muestra el resultado numérico y gráfico para planificar la instalación de manera eficiente y sencilla.
 
-```
-/app
-  layout.js
-  page.js            # UI principal
-/components
-  Inputs.jsx         # formulario controlado
-  RoofView.jsx       # dibujo SVG
-/lib
-  packing.js         # algoritmo de colocación
-/styles
-  globals.css        # estilos mínimos
-
+Este enfoque combina eficiencia con visualización intuitiva, facilitando la planificación de instalaciones solares sin complicaciones.
