@@ -1,7 +1,7 @@
 # ¿Cuántos paneles caben?
-Hecho con nextJS y React
-no se utilizó bases de datos no era necesario
-no se utilizaron imagenes, solo estiños css con tailwind 
+Hecho con NextJS y React.
+No se utilizó bases de datos no era necesario.
+no se utilizaron imagenes, solo estiños css con tailwind.
 
 ¿Cómo funciona esta aplicación?
 Esta aplicación calcula de forma automática la cantidad máxima de paneles solares rectangulares que pueden ser instalados en un techo también rectangular. El usuario ingresa las dimensiones del techo y del panel, y la aplicación analiza diferentes combinaciones para acomodar los paneles, buscando la disposición que mejor aproveche el espacio disponible.
