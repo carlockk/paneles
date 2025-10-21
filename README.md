@@ -10,8 +10,6 @@ Permite **rotar** los paneles y usa una **heurística guillotina** (filas/column
 3. **Mixtas por columnas**: igual idea, partiendo el ancho.
 4. De todas las variantes, elegimos la que **maximiza** el número de paneles y generamos un **layout** con coordenadas.
 
-> Nota: el empaquetado 2D óptimo es NP-difícil; esta aproximación es **rápida y muy competitiva** para frontends interactivos.
-
 ## Ejecutar en local
 
 Requisitos: Node.js 18+ (o 20+). En Windows PowerShell:
